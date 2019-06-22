@@ -1,14 +1,16 @@
 <template>
-  <div id="Navbar">
+  <div class="navbar">
     <div class="nav-items">
       <ul>
-        <li><a>登录</a></li>
-        <li><a>注册</a></li>
+        <li><router-link to="/login">登录</router-link></li>
+        <li><router-link to="/register">注册</router-link></li>
       </ul>
     </div>
     <div class="nav-wrap">
       <div class="nav-logo">
-        <router-link to="/">图书推荐系统</router-link>
+        <router-link to="/">
+          <img src="@/assets/logo.png"/>
+        </router-link>
       </div>
       <div class="nav-search">
         <el-input placeholder="输入您想查询的书籍名称" v-model="input" class="nav-ipt">
@@ -30,14 +32,17 @@ export default {
 
 </script>
 <style scoped lang='scss'>
-#Navbar{
+.navbar{
   box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 5px 10px rgba(0,0,0,.05);
   .nav-items{
     height: 28px;
+    width: 100%;
     background-color: #545652;
     padding: 0;
     ul {
-      float: right;
+      display:flex;
+      justify-content: flex-end;
+      align-items: flex-end;
       margin-right: 15px;
       li{
         list-style: none;
@@ -46,7 +51,10 @@ export default {
         vertical-align: middle;
         line-height: 28px;
         color: white;
-        padding: 0 12px; 
+        padding: 0 12px;
+        a{
+          color: white;
+        } 
       }
     }
   }
@@ -56,23 +64,19 @@ export default {
     width: 100%;
     background-color: #F6F6F1;
     .nav-logo {
-      flex: 0 0 400px;
-      width: 30%;
       a{
-        color: #614e3c;
-        font-family: Helvetica,Arial, sans-serif;
-        font-size: 30px;
-        font-weight: 600;
-        line-height: 115px;
-        vertical-align: middle;
-        margin-left: 100px;
+        img{
+          width: 150px;
+          margin: 38.25px 50px;
+        }
       }
     }
     .nav-search{
-      flex: 1 1 auto;
+      flex: 1;
       .nav-ipt{
-        width: 470px;
-        margin: 38px auto;
+        width: 80%;
+        max-width: 470px;
+        margin: 38px 20%;
         box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 5px 10px rgba(0,0,0,.05);
       }
     }

@@ -17,12 +17,18 @@ export default {
 </script>
 
 <style lang="scss">
-* {
+*{
   margin: 0;
   padding: 0;
 }
-a {
+a{
   cursor: pointer;
   text-decoration: none;
+}
+input,
+button,
+select,
+textarea{
+  outline:none;
 }
 </style>

@@ -2,8 +2,9 @@
   <div class="navbar">
     <div class="nav-items">
       <ul>
-        <li><router-link to="/login">登录</router-link></li>
-        <li><router-link to="/register">注册</router-link></li>
+        <li v-if="!isLogin"><router-link to="/login" >登录</router-link></li>
+        <li v-else><a @click="changeLoginState">注销</a></li>
+        <li v-if="!isLogin"><router-link to="/register">注册</router-link></li>
       </ul>
     </div>
     <div class="nav-wrap">
@@ -22,14 +23,24 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
       input: ''
     }
+  },
+  computed: {
+    ...mapState([
+      'isLogin'
+    ])
+  },
+  methods: {
+    ...mapMutations([
+      'changeLoginState'
+    ])
   }
 }
-
 </script>
 <style scoped lang='scss'>
 .navbar{

@@ -12,7 +12,7 @@
       <div class="login-form">
         <input class="ipt" v-model="userName" placeholder="请输入用户名"/>
         <input class="ipt" v-model="password" placeholder="请输入密码" type="password"/>
-        <button class="submmit" @click="changeLoginState">Login</button>
+        <button class="submmit" @click="toLogin">Login</button>
         <a class="forget">忘记密码</a>
       </div>
     </div>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
 export default {
   data () {
     return {
@@ -29,16 +28,17 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([
-      'changeLoginState'
-    ])
+    toLogin: function () {
+      alert('登录成功！');
+      this.$store.commit('changeLoginState');
+      this.$router.push('/');
+    }
   }
 }
 
 </script>
 <style scoped lang='scss'>
 .login{
-  font-family: '宋体';
   .login-wrap{
     height: 100vh;
     background: linear-gradient(to right, #a7bfe8, #6190e8);

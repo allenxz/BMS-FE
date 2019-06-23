@@ -31,7 +31,6 @@ export default {
 </script>
 <style scoped lang='scss'>
 .register{
-  font-family: '宋体';
   .register-warp{
     height: 100vh;
     background: linear-gradient(to right, #ffdde1, #ee9ca7);

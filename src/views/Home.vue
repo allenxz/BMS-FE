@@ -1,12 +1,14 @@
 <template>
   <div class="home">
+    <!-- 导航栏 -->
+    <navbar></navbar>
     <el-row class="main">
       <el-col :span="18" class="main-left">
         <!-- 新书速递 begin-->
         <div class="new-books">
           <div class="block">
             <span class="title">新书速递</span>
-            <span class="link-more"><a>更多 》</a></span>
+            <span class="link-more"><router-link to="/more/新书速递">更多 》</router-link></span>
           </div>
           <div class="display-area">
             <el-row>
@@ -29,7 +31,7 @@
         <div class="hot-books">
           <div class="block">
             <span class="title">热门图书</span>
-            <span class="link-more"><a>更多 》</a></span>
+            <span class="link-more"><router-link to="/more/热门图书">更多 》</router-link></span>
           </div>
           <div class="display-area">
             <el-row>
@@ -52,7 +54,7 @@
         <div class="guess-like" v-show="isLogin">
           <div class="block">
             <span class="title">猜你喜欢</span>
-            <span class="link-more"><a>更多 》</a></span>
+            <span class="link-more"><router-link to="/more/猜你喜欢">更多 》</router-link></span>
           </div>
           <div class="display-area">
             <el-row>
@@ -77,7 +79,7 @@
         <div class="hot-tags">
           <div class="block">
               <span class="title">热门标签</span>
-              <span class="link-more"><a>所有热门标签 》</a></span>
+              <!-- <span class="link-more"><router-link to="/more">所有热门标签 》</router-link></span> -->
           </div>
           <div class="tags-area">
             <div v-for="o in 100" :key="o" class="tag">
@@ -92,6 +94,7 @@
 </template>
 
 <script>
+import Navbar from '../components/Navbar'
 import { mapState } from 'vuex';
 export default {
   name: 'home',
@@ -109,6 +112,9 @@ export default {
     ...mapState([
       'isLogin'
     ])
+  },
+  components: {
+    Navbar
   }
 }
 </script>

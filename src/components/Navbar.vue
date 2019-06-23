@@ -3,7 +3,7 @@
     <div class="nav-items">
       <ul>
         <li v-if="!isLogin"><router-link to="/login" >登录</router-link></li>
-        <li v-else><a @click="changeLoginState">注销</a></li>
+        <li v-else><a @click="loginOut">注销</a></li>
         <li v-if="!isLogin"><router-link to="/register">注册</router-link></li>
       </ul>
     </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -36,9 +36,10 @@ export default {
     ])
   },
   methods: {
-    ...mapMutations([
-      'changeLoginState'
-    ])
+    loginOut: function () {
+      alert('注销成功！');
+      this.$store.commit('changeLoginState');
+    }
   }
 }
 </script>

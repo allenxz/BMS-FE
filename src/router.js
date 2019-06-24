@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import More from './views/More.vue'
+import Details from './views/Details.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,13 @@ export default new Router({
       component: More,
       props: {
         title: ''
+      }
+    },{
+      path: '/details/:name',
+      name: 'details',
+      component: Details,
+      props: {
+        details: ''
       }
     }
   ]

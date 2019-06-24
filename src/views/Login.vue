@@ -31,7 +31,7 @@ export default {
     toLogin: function () {
       alert('登录成功！');
       this.$store.commit('changeLoginState');
-      this.$router.push('/');
+      this.$router.go(-1);
     }
   }
 }

@@ -5,11 +5,11 @@
       <div class="title">{{$route.params.title}}</div>
       <div class="list">
         <div class="list-item" v-for="o in 10" :key="o">
-          <a class="cover">
+          <router-link class="cover" to="/details/焚舟记">
             <img src="https://img3.doubanio.com/view/subject/m/public/s30022290.jpg" class="book-image"/>
-          </a>
+          </router-link>
           <div class="info">
-            <h2 class="name"><a>焚舟记</a></h2>
+            <h2 class="name"><router-link to="/details/焚舟记">焚舟记</router-link></h2>
             <el-rate
               class="rate"
               v-model="value"

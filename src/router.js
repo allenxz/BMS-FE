@@ -9,7 +9,7 @@ import Details from './views/Details.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -46,7 +46,8 @@ export default new Router({
       props: {
         title: ''
       }
-    },{
+    },
+    {
       path: '/details/:name',
       name: 'details',
       component: Details,
@@ -54,5 +55,8 @@ export default new Router({
         details: ''
       }
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

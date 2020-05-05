@@ -152,7 +152,7 @@ export default {
     },
     goto(bid){
       this.$router.push('/details/' + book.bid)
-      history.go(0)
+      location.reload()
     }
   }
 }

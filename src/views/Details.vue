@@ -89,14 +89,14 @@
           <div class="display-area">
             <el-row>
               <el-col :span="5" v-for="(book, index) in recommend" :key="index">
-                <router-link :to="'/details/' + book.bid">
+                <a @click="goto(book.bid)">
                   <el-card :body-style="cardStyle" shadow="hover">
                     <img src="../assets/default.jpg" class="card-image">
                     <div class="info">
                       <div class="title">{{book.name}}</div>
                     </div>
                   </el-card>
-                </router-link>
+                </a>
               </el-col>
             </el-row>
           </div>
@@ -149,6 +149,10 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/')
+    },
+    goto(bid){
+      this.$router.push('/details/' + book.bid)
+      history.go(0)
     }
   }
 }
@@ -172,6 +176,9 @@ export default {
       font-weight: bold;
       color: #494949;
       line-height: 1.1;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
     }
     .subject{
       width: 775px;
@@ -282,6 +289,8 @@ export default {
             line-height: 1.1;
             text-align: center;
             text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
           }
         }
       } 

@@ -138,7 +138,7 @@ export default {
       bid: id
     }).then(res => {
       if (res.data.data) {
-        this.bookInfo = res.data.data.bookInfo
+        this.bookInfo = res.data.data.main
         this.recommend = res.data.data.recommend
         this.displayScore = (this.bookInfo.score/2).toFixed(1) - 0
       } else {

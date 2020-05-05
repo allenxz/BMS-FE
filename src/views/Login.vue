@@ -26,18 +26,20 @@ export default {
   methods: {
     toLogin: function () {
       this.$http.post('/login').then(res => {
-        this.$notify({
-          message: '成功登录',
-          type: 'success'
-        });
-        localStorage.setItem('token', res.token)
-        this.$store.commit('login');
-        this.$router.go(-1);
-      }).catch(err => {
-        this.$notify({
-          message: err,
-          type: 'error'
-        });
+        if (res.data) {
+          this.$notify({
+            message: '成功登录',
+            type: 'success'
+          });
+          localStorage.setItem('token', res.data.token)
+          this.$store.commit('login');
+          this.$router.go(-1);
+        } else {
+          this.$notify({
+            message: res.exception,
+            type: 'error'
+          });
+        }
       })
     }
   }

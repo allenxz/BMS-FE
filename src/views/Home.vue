@@ -51,11 +51,15 @@ export default {
         this.$http.post('/search',{
           keyword: word
         }).then(res => {
-          this.books = res.recommend
-          this.books.forEach(i => {
-            this.scoreArr.push((i.score/2).toFixed(1))
-          })
-          localStorage.setItem('keyword',word)
+          if (res.data) {
+            this.books = res.data.recommend
+            this.books.forEach(i => {
+              this.scoreArr.push((i.score/2).toFixed(1))
+            })
+            localStorage.setItem('keyword',word)
+          } else {
+            console.log(res.excption)
+          }
         })  
     });  
   },
@@ -65,10 +69,15 @@ export default {
       this.$http.post('/search',{
         keyword: word
       }).then(res => {
-        this.books = res.recommend
-        this.books.forEach(i => {
-          this.scoreArr.push((i.score/2).toFixed(1))
-        })
+        if (res.data) {
+          this.books = res.data.recommend
+          this.books.forEach(i => {
+            this.scoreArr.push((i.score/2).toFixed(1))
+          })
+        }
+        else {
+          console.log(res.excption)
+        }
       }) 
     }
   },

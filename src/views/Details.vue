@@ -7,8 +7,8 @@
       <!-- 图书信息，包括图书封面，图书信息以及评分 -->
       <div class="subject">
         <div class="mainImage">
-          <a class="nbg" href="https://img3.doubanio.com/view/subject/l/public/s30022290.jpg" :title="bookInfo.name">
-            <img src="https://img3.doubanio.com/view/subject/l/public/s30022290.jpg" title="点击看大图" :alt="bookInfo.name" style="width: 135px;max-height: 200px;">
+          <a class="nbg" :href="bookInfo.url" :title="bookInfo.name">
+            <img src="../assets/default.jpg" title="点击看大图" :alt="bookInfo.name" style="width: 135px;max-height: 200px;">
           </a>
         </div>
         <div class="info">

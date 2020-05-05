@@ -52,14 +52,14 @@ export default {
         fetch.post('/search',{
           keyword: word
         }).then(res => {
-          if (res.data) {
-            this.books = res.data.recommend
+          if (res.data.data) {
+            this.books = res.data.data.recommend
             this.books.forEach(i => {
               this.scoreArr.push((i.score/2).toFixed(1))
             })
             localStorage.setItem('keyword',word)
           } else {
-            console.log(res.excption)
+            console.log(res.data.excption)
           }
         })  
     });  
@@ -70,14 +70,14 @@ export default {
       fetch.post('/search',{
         keyword: word
       }).then(res => {
-        if (res.data) {
-          this.books = res.data.recommend
+        if (res.data.data) {
+          this.books = res.data.data.recommend
           this.books.forEach(i => {
             this.scoreArr.push((i.score/2).toFixed(1))
           })
         }
         else {
-          console.log(res.excption)
+          console.log(res.data.excption)
         }
       }) 
     }

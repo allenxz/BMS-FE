@@ -30,17 +30,18 @@ export default {
         username: this.userName,
         password: this.password
       }).then(res => {
-        if (res.data) {
+        console.log(res)
+        if (res.data.data) {
           this.$notify({
             message: '成功登录',
             type: 'success'
           });
-          localStorage.setItem('token', res.data.token)
+          localStorage.setItem('token', res.data.data.token)
           this.$store.commit('login');
           this.$router.go(-1);
         } else {
           this.$notify({
-            message: res.exception,
+            message: res.data.exception,
             type: 'error'
           });
         }

@@ -137,12 +137,12 @@ export default {
     fetch.post('/getOneBook',{
       bid: id
     }).then(res => {
-      if (res.data) {
-        this.bookInfo = res.data.bookInfo
-        this.recommend = res.data.recommend
+      if (res.data.data) {
+        this.bookInfo = res.data.data.bookInfo
+        this.recommend = res.data.data.recommend
         this.displayScore = (this.bookInfo.score/2).toFixed(1) - 0
       } else {
-        console.log(res.exception)
+        console.log(res.data.exception)
       }
     })
   },

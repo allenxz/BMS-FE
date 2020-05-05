@@ -82,19 +82,21 @@
       <!-- 相关信息，包括内容简介，作者简介，目录以及联系阅读 -->
       <div class="related-info">
         <div class="related-info-title">
-          <span>喜欢"{{bookInfo.name}}"的人也喜欢</span>
+          <span>为你推荐</span>
           · · · · · ·
         </div>
         <div class="intro">
           <div class="display-area">
             <el-row>
               <el-col :span="5" v-for="(book, index) in recommend" :key="index">
-                <el-card :body-style="cardStyle" shadow="hover" @click="goto(book.bid)">
-                  <img src="../assets/default.jpg" class="card-image">
-                  <div class="info">
-                    <div class="title">{{book.name}}</div>
-                  </div>
-                </el-card>
+                <router-link target="_blank" :to="'/path' + book.bid">
+                  <el-card :body-style="cardStyle" shadow="hover">
+                    <img src="../assets/default.jpg" class="card-image">
+                    <div class="info">
+                      <div class="title">{{book.name}}</div>
+                    </div>
+                  </el-card>
+                </router-link>
               </el-col>
             </el-row>
           </div>
@@ -149,6 +151,7 @@ export default {
       this.$router.push('/')
     },
     goto(bid){
+      console.log(bid)
       this.$router.push('/details/' + book.bid)
       location.reload()
     }

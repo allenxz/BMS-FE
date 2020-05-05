@@ -26,7 +26,7 @@ export default {
   methods: {
     toLogin: function () {
       this.$http.post('/login',{
-        userName: this.userName,
+        username: this.userName,
         password: this.password
       }).then(res => {
         if (res.data) {

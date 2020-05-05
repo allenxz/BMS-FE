@@ -89,14 +89,14 @@
           <div class="display-area">
             <el-row>
               <el-col :span="5" v-for="(book, index) in recommend" :key="index">
-                <router-link :to="'/details/' + book.bid"> 
+                <a :href="'http://localhost:8090/details/' + book.bid"> 
                   <el-card :body-style="cardStyle" shadow="hover">
                     <img src="../assets/default.jpg" class="card-image">
                     <div class="info">
                       <div class="title">{{book.name}}</div>
                     </div>
                   </el-card>
-                </router-link>
+                </a>
               </el-col>
             </el-row>
           </div>

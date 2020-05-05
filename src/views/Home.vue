@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import fetch from '@/utils/fetch'
 import Bus from '../bus'
 import Navbar from '../components/Navbar'
 export default {
@@ -48,7 +49,7 @@ export default {
         if (!word) {
           return;
         }
-        this.$http.post('/search',{
+        fetch.post('/search',{
           keyword: word
         }).then(res => {
           if (res.data) {
@@ -66,7 +67,7 @@ export default {
   mounted() {
     let word = localStorage.getItem('keyword')
     if(word) {
-      this.$http.post('/search',{
+      fetch.post('/search',{
         keyword: word
       }).then(res => {
         if (res.data) {

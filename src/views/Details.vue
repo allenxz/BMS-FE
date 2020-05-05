@@ -107,6 +107,7 @@
 </template>
 
 <script>
+import fetch from '@/utils/fetch'
 import Navbar from '../components/Navbar'
 import { mapState } from 'vuex'
 export default {
@@ -133,7 +134,7 @@ export default {
   },
   mounted() {
     let id = this.$route.params.name;
-    this.$http.post('/getOneBook',{
+    fetch.post('/getOneBook',{
       bid: id
     }).then(res => {
       if (res.data) {

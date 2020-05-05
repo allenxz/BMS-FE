@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import fetch from '@/utils/fetch'
 export default {
   data () {
     return {
@@ -25,7 +26,7 @@ export default {
   },
   methods: {
     toLogin: function () {
-      this.$http.post('/login',{
+      fetch.post('/login',{
         username: this.userName,
         password: this.password
       }).then(res => {

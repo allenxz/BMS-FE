@@ -25,7 +25,10 @@ export default {
   },
   methods: {
     toLogin: function () {
-      this.$http.post('/login').then(res => {
+      this.$http.post('/login',{
+        userName: this.userName,
+        password: this.password
+      }).then(res => {
         if (res.data) {
           this.$notify({
             message: '成功登录',

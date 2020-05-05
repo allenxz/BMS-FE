@@ -136,8 +136,8 @@ export default {
     this.$http.post('/getOneBook',{
       bid: id
     }).then(res => {
-      this.bookInfo = res.data.bookInfo
-      this.recommend = res.data.recommend
+      this.bookInfo = res.bookInfo
+      this.recommend = res.recommend
       this.displayScore = (this.bookInfo.score/2).toFixed(1) - 0
     })
   },

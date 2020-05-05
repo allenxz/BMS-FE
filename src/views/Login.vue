@@ -30,7 +30,7 @@ export default {
           message: '成功登录',
           type: 'success'
         });
-        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('token', res.token)
         this.$store.commit('login');
         this.$router.go(-1);
       }).catch(err => {

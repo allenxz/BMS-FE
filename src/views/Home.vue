@@ -51,7 +51,7 @@ export default {
         this.$http.post('/search',{
           keyword: word
         }).then(res => {
-          this.books = res.data.recommend
+          this.books = res.recommend
           this.books.forEach(i => {
             this.scoreArr.push((i.score/2).toFixed(1))
           })
@@ -65,7 +65,7 @@ export default {
       this.$http.post('/search',{
         keyword: word
       }).then(res => {
-        this.books = res.data.recommend
+        this.books = res.recommend
         this.books.forEach(i => {
           this.scoreArr.push((i.score/2).toFixed(1))
         })

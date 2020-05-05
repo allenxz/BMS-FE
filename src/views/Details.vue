@@ -89,14 +89,12 @@
           <div class="display-area">
             <el-row>
               <el-col :span="5" v-for="(book, index) in recommend" :key="index">
-                <a @click="goto(book.bid)">
-                  <el-card :body-style="cardStyle" shadow="hover">
-                    <img src="../assets/default.jpg" class="card-image">
-                    <div class="info">
-                      <div class="title">{{book.name}}</div>
-                    </div>
-                  </el-card>
-                </a>
+                <el-card :body-style="cardStyle" shadow="hover" @click="goto(book.bid)">
+                  <img src="../assets/default.jpg" class="card-image">
+                  <div class="info">
+                    <div class="title">{{book.name}}</div>
+                  </div>
+                </el-card>
               </el-col>
             </el-row>
           </div>
